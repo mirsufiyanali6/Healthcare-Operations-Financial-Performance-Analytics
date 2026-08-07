@@ -6,31 +6,40 @@ End-to-end healthcare analytics project: SQL Server → Python (EDA + statistica
 
 Hospital management needs a single, data-driven view of who they treat, what it costs, and where operational risk sits — which age groups drive care volume, which conditions and hospitals drive cost, whether admission type or gender meaningfully affect billing and length of stay, and where the underlying data itself has quality problems that would undermine that reporting.
 
-Full write-up, methodology, and results: [`Healthcare_Business_Conclusion_Report.pdf`](./reports/Healthcare_Business_Conclusion_Report.pdf)
+Full statement: [`05_Documentation/Business_Problem.md`](./05_Documentation/Business_Problem.md)
 
 ## What's in this repo
 
 ```
-healthcare-operations-financial-performance/
-├── data/
-│   └── healthcare_dataset.csv
-├── sql/
-│   └── Healthcare_analysis.sql
-├── notebooks/
-│   ├── Exploratory_Data_Analysis.ipynb
-│   └── Statistical_Analysis.ipynb
-├── dashboard/
-│   ├── Healthcare_Operations___Financial_Performance.pbix
+├── 01_Dataset/
+│   └── healthcare_dataset.csv                       (54,966 admission records after cleaning)
+│
+├── 02_SQL/
+│   └── Healthcare_analysis.sql                      (28 business questions — demographics,
+│                                                       revenue, hospitals, doctors, insurance)
+│
+├── 03_Python/
+│   ├── Exploratory_Data_Analysis.ipynb               (cleaning: dedup, casing, load to SQL Server)
+│   └── Statistical_Analysis.ipynb                    (descriptive stats, correlation,
+│                                                       hypothesis testing)
+│
+├── 04_PowerBI/
+│   ├── Healthcare_Operations___Financial_Performance.pbix   (1-page executive dashboard)
 │   ├── Healthcare_Operations___Financial_Performance_Dashboard.png
 │   └── data_model.png
-├── reports/
-│   └── Healthcare_Business_Conclusion_Report.pdf
+│
+├── 05_Documentation/
+│   ├── Business_Problem.md
+│   ├── KPI_Definitions.md
+│   └── Healthcare_Business_Conclusion_Report.pdf     (full findings, methodology, caveats)
+│
+├── LICENSE
 └── README.md
 ```
 
 ## Data Model
 
-![Data model](./dashboard/data_model.png)
+![Data model](./04_PowerBI/data_model.png)
 
 Single-table model: `healthcare_data` (patient, admission, billing, and clinical fields) loaded into SQL Server after Python cleaning, then imported directly into Power BI.
 
@@ -38,7 +47,7 @@ Single-table model: `healthcare_data` (patient, admission, billing, and clinical
 
 **Healthcare Operations & Financial Performance** — one page, filterable by year, month, hospital, admission type, and insurance provider. Shows total doctors/hospitals/patients, average billing per patient, average length of stay, total revenue, monthly revenue trend, top 5 hospitals by revenue, insurance coverage split, and test result split.
 
-![Dashboard](./dashboard/Healthcare_Operations___Financial_Performance_Dashboard.png)
+![Dashboard](./04_PowerBI/Healthcare_Operations___Financial_Performance_Dashboard.png)
 
 ## Key Findings
 
@@ -49,7 +58,8 @@ Single-table model: `healthcare_data` (patient, admission, billing, and clinical
 - Hospital, doctor, insurer, and test-result distributions are all close to uniform, and 39,876 of 54,966 rows have a unique hospital name — evidence this dataset is synthetic rather than real operational history, so hospital/doctor "leaderboards" should be read as illustrative, not as real business signal.
 - 106 records carry negative billing amounts (down to -$2,008), flagged as a data-quality issue to resolve before this pipeline is used on real financial data.
 
-Full detail, methodology, and caveats: [`Healthcare_Business_Conclusion_Report.pdf`](./reports/Healthcare_Business_Conclusion_Report.pdf)
+KPI formulas: [`05_Documentation/KPI_Definitions.md`](./05_Documentation/KPI_Definitions.md)
+Full detail, methodology, and caveats: [`05_Documentation/Healthcare_Business_Conclusion_Report.pdf`](./05_Documentation/Healthcare_Business_Conclusion_Report.pdf)
 
 ## Tech Stack
 
