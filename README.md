@@ -24,7 +24,6 @@ healthcare-operations-financial-performance/
 │   ├── Healthcare_Operations___Financial_Performance_Dashboard.png
 │   └── data_model.png
 ├── reports/
-│   ├── Healthcare_Business_Conclusion_Report.docx
 │   └── Healthcare_Business_Conclusion_Report.pdf
 └── README.md
 ```
