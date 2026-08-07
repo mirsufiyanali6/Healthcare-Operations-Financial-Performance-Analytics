@@ -25,7 +25,7 @@ Full statement: [`05_Documentation/Business_Problem.md`](./05_Documentation/Busi
 │
 ├── 04_PowerBI/
 │   ├── Healthcare_Operations___Financial_Performance.pbix   (1-page executive dashboard)
-│   ├── Healthcare_Operations___Financial_Performance_Dashboard.png
+│   ├── dashboard.png
 │   └── data_model.png
 │
 ├── 05_Documentation/
@@ -47,7 +47,7 @@ Single-table model: `healthcare_data` (patient, admission, billing, and clinical
 
 **Healthcare Operations & Financial Performance** — one page, filterable by year, month, hospital, admission type, and insurance provider. Shows total doctors/hospitals/patients, average billing per patient, average length of stay, total revenue, monthly revenue trend, top 5 hospitals by revenue, insurance coverage split, and test result split.
 
-![Dashboard](./04_PowerBI/Healthcare_Operations___Financial_Performance_Dashboard.png)
+![Dashboard](./04_PowerBI/dashboard.png)
 
 ## Key Findings
 
