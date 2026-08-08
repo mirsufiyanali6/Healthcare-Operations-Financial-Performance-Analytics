@@ -12,7 +12,8 @@ Full statement: [`05_Documentation/Business_Problem.md`](./05_Documentation/Busi
 
 ```
 ├── 01_Dataset/
-│   └── healthcare_dataset.csv                       (54,966 admission records after cleaning)
+│   ├── healthcare_dataset.csv                       (54,966 admission records after cleaning)
+│   └── Data_Dictionary.md                            (schema + known data quality notes)
 │
 ├── 02_SQL/
 │   └── Healthcare_analysis.sql                      (28 business questions — demographics,
@@ -25,7 +26,7 @@ Full statement: [`05_Documentation/Business_Problem.md`](./05_Documentation/Busi
 │
 ├── 04_PowerBI/
 │   ├── Healthcare_Operations___Financial_Performance.pbix   (1-page executive dashboard)
-│   ├── dashboard.png
+│   ├── Healthcare_Operations___Financial_Performance_Dashboard.png
 │   └── data_model.png
 │
 ├── 05_Documentation/
@@ -41,13 +42,13 @@ Full statement: [`05_Documentation/Business_Problem.md`](./05_Documentation/Busi
 
 ![Data model](./04_PowerBI/data_model.png)
 
-Single-table model: `healthcare_data` (patient, admission, billing, and clinical fields) loaded into SQL Server after Python cleaning, then imported directly into Power BI.
+Single-table model: `healthcare_data` (patient, admission, billing, and clinical fields) loaded into SQL Server after Python cleaning, then imported directly into Power BI. Full column-by-column definitions: [`01_Dataset/Data_Dictionary.md`](./01_Dataset/Data_Dictionary.md)
 
 ## Dashboard
 
 **Healthcare Operations & Financial Performance** — one page, filterable by year, month, hospital, admission type, and insurance provider. Shows total doctors/hospitals/patients, average billing per patient, average length of stay, total revenue, monthly revenue trend, top 5 hospitals by revenue, insurance coverage split, and test result split.
 
-![Dashboard](./04_PowerBI/dashboard.png)
+![Dashboard](./04_PowerBI/Healthcare_Operations___Financial_Performance_Dashboard.png)
 
 ## Key Findings
 
